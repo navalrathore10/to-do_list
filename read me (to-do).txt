@@ -1,0 +1,27 @@
+**To-Do List Application**
+
+Welcome to our simple and efficient to-do list application! This app allows you to organize your tasks effectively with a clean and intuitive interface. Below, you'll find instructions on how to get started with the app and contribute to its development.
+
+**Features:**
+- Add tasks easily by typing in the input field and pressing Enter.
+- Mark tasks as done by clicking on them. Click again to undo.
+- Delete tasks by clicking on the delete button next to them.
+- Responsive design ensures seamless usage across different devices.
+
+**Getting Started:**
+1. Clone the repository to your local machine using Git:
+   ```
+   git clone <repository_url>
+   ```
+2. Open the `index.html` file in your preferred web browser.
+3. Start adding tasks to your to-do list by typing in the input field and pressing Enter.
+
+**Contributing:**
+We welcome contributions from the community to enhance our to-do list application. Here's how you can contribute:
+- Report bugs or suggest features by opening an issue on GitHub.
+- Fork the repository, make your changes, and submit a pull request.
+
+**License:**
+This project is licensed under the MIT License. See the `LICENSE` file for more details.
+
+Happy task organizing! 📝✨

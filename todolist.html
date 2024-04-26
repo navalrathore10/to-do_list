@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Meta tags for character encoding and viewport -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Title of the webpage -->
+  <title>To-Do List</title>
+  <!-- Internal CSS styling -->
+  <style>
+    /* Body styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #242424;
+    }
+
+    /* Container styles */
+    .container {
+      max-width: 400px;
+      margin: 20px auto;
+      background-color: #e3e3e3;
+      border-radius: 5px;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Header styles */
+    h1 {
+      text-align: center;
+    }
+
+    /* Input field styles */
+    input[type="text"] {
+      width: 378px;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #a4a4a4;
+      border-radius: 5px;
+    }
+
+    /* List styles */
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    /* List item styles */
+    li {
+      margin-bottom: 10px;
+    }
+
+    /* To-do item styles */
+    .todo-item {
+      width: calc(100%-10px);
+      padding: 5px;
+      border: solid 1px rgb(214, 214, 214);
+      border-radius: 5px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: inset 0px 0px 40px #24242491;
+    }
+
+    /* Span styles */
+    li span {
+      display: inline-block;
+      width: 80%;
+    }
+
+    /* Delete button styles */
+    .delete-btn {
+      background-color: #dc3545;
+      color: #fff;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    /* Hover styles for delete button */
+    .delete-btn:hover {
+      background-color: #c82333;
+    }
+
+    /* Done styles */
+    .done {
+      background-color: rgb(79, 79, 79) !important;
+      text-decoration: line-through white !important;
+      border-left: solid 5px rgb(0, 191, 255);
+    }
+
+    /* Hero to-do styles */
+    .hero_todo {
+      display: flex;
+      position: relative;
+      align-items: top;
+      padding: 40px;
+    }
+
+    /* Hero to-do text styles */
+    .hero_todo_text {
+      position: absolute;
+      top: 20px;
+      left: 190px;
+      font-size: 72px;
+      background: linear-gradient(90deg, rgb(255, 255, 255) 0%, rgba(121, 121, 121, 1) 49%, rgba(255, 255, 255, 0.119) 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 10px 10px 20px rgba(0, 0, 0, 0.251);
+    }
+
+    /* To-do app styles */
+    .todo_app {
+      position: relative;
+      left: 350px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Hero to-do section -->
+  <div class="hero_todo">
+    <!-- Hero to-do text -->
+    <div class="hero_todo_text">
+      <h1>To-Do List</h1>
+    </div>
+    <!-- To-do list container -->
+    <div class="container todo_app">
+      <!-- Input field for adding tasks -->
+      <input type="text" id="taskInput" placeholder="Add a new task...">
+      <!-- List to display tasks -->
+      <ul id="taskList">
+
+      </ul>
+    </div>
+  </div>
+
+  <!-- JavaScript code -->
+  <script>
+    // Selecting the input field and task list
+    var taskInput = document.querySelector("#taskInput");
+    var taskList = document.querySelector("#taskList");
+    // Adding event listener to input field for keyup event
+    taskInput.addEventListener(
+      "keyup",
+      function (e) {
+        // Checking if Enter key is pressed and input field is not empty
+        if (e.key == "Enter" && taskInput.value !== "") {
+          // Storing the task value
+          var task = taskInput.value;
+          // Clearing the input field
+          taskInput.value = "";
+          // Creating a new list item
+          var item = document.createElement("li");
+          // Adding class to the list item
+          item.classList.add("todo-item");
+          // Setting inner HTML of the list item
+          item.innerHTML = `
+                                     <span>${task}</span>
+                                    <button class="delete-btn" onclick="this.parentElement.remove()">Delete</button>
+                                    `;
+          // Appending the list item to the task list
+          taskList.appendChild(item);
+          // Adding event listener to the task text for click event
+          item.children[0].addEventListener(
+            "click",
+            function () {
+              // Toggling the 'done' class on the list item
+              item.classList.toggle("done");
+            }
+          )
+        }
+      }
+    )
+  </script>
+</body>
+
+</html>
